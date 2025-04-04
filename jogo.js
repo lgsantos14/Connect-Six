@@ -12,6 +12,26 @@ const estadoInicial = {
   jogadores: iniciarJogadores(),
 };
 
+// Iniciar o tabuleiro
+document.addEventListener("DOMContentLoaded", () => {
+  const index = document.getElementById("tabuleiro");
+  atualizarTabuleiro(index);
+});
+
+const atualizarTabuleiro = (index) => {
+  index.innerHTML = ""; // Limpa o conteúdo do tabuleiro
+  estadoInicial.tabuleiro.forEach((linha, i) => {
+    linha.forEach((bolinha, j) => {
+      const div = document.createElement("div");
+      div.classList.add("bolinha"); 
+      if (bolinha === 1) div.classList.add("jogador1"); 
+      if (bolinha === 2) div.classList.add("jogador2"); 
+      div.addEventListener("click", () => jogar(j)); 
+      index.appendChild(div); 
+    });
+  });
+};
+
 // Verificar a vitória
 const verificarVitoria = (jogador) => {
   const necessario = 6;
