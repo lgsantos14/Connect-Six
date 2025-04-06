@@ -50,7 +50,8 @@ const jogar = (coluna) => {
     // Verifica se há um vencedor após a jogada
     if (verificarVitoria(estadoInicial.jogadores.jogadorAtual)) {
       setTimeout(() => {
-        alert(`Jogador ${estadoInicial.jogadores.jogadorAtual} venceu!`);
+        //alert(`Jogador ${estadoInicial.jogadores.jogadorAtual} venceu!`);
+        Swal.fire(`Jogador ${estadoInicial.jogadores.jogadorAtual} venceu!`);
         estadoInicial.tabuleiro = criarTabuleiro();
         estadoInicial.jogadores = iniciarJogadores();
         atualizarTabuleiro(document.getElementById("tabuleiro"));
